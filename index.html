@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<link href='https://www.blogger.com/static/v1/widgets/55013136-widget_css_bundle.css' rel='stylesheet' type='text/css'/>
+<title>Kuro Player</title>
+<style id='page-skin-1' type='text/css'>
+  <!----></style>
+   <b:skin><![CDATA[  
+/** <!-- Variable definitions -->
+
+      ]]></b:skin>
+<meta content='ca-host-pub-1556223355139109' name='google-adsense-platform-account'/>
+<meta content='blogspot.com' name='google-adsense-platform-domain'/> 
+  <link href='https://cdn.plyr.io/3.7.8/plyr.css' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+  <b:section class='th' id='header' showaddelement='no'/>
+
+<div class='no-items section' id='contoh'/>
+<style>
+.embed {
+    position: absolute;
+    background: none;
+    top: 2px;
+    z-index: 999;
+    color: aqua;
+    font-family: sans-serif;
+    font-size: 18px;
+    border: 0;
+    font-weight: 600;
+    right: 10px;
+}
+	</style>
+  <script src='https://cdn.plyr.io/3.7.8/plyr.js'/>
+<script> /*<![CDATA[*/
+		var apikey = "AIzaSyCH4I2OxQnocrzdiZLeLOSI6GOnkuUR-yI";//Your Drive Api Key
+        var eid="";
+        var video="";
+        var embed="";
+
+        if(!getParameterByName('id') || getParameterByName('ib')){
+          var eid = prompt('URL DRIVE DISINI YA :- ');
+          embed = `
+<iframe allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='true' frameborder='0' height='100%' scrolling='no' src='${location.href}?id=${eid}' width='100%'></iframe>
+          `;
+          prompt('HORE BERHASIL ,AMBIL URLNYA SAJA :- ',embed);
+          window.location.href = window.location.href+'?id='+eid;
+        } 
+        video = getParameterByName('id') ;
+        if(getParameterByName('ib')){
+            video = btoa(getParameterByName('ib'));
+        }
+        var vidurl = "https://www.googleapis.com/drive/v3/files/"+video+"?alt=media&key="+apikey;
+      console.log(vidurl)
+        document.write("<video controls crossorigin playsinline class='js-player' data-poster='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhE0YYTCJ7b7DZncRo4lGnukDt0WiH76h5VeB6va8gqQ61U4HTWiUgGYiQAi57p8byp_lUDNcgy5OZKP8afZdWulPM7pJW4lLGftXRnYVHSIXWNoG9hLxryNFa2SdLJRNhV-XVjP1rPq182He4hkuacL-K_hqCppvOLLhZiV0wXRLuebBnlkkw-ZC0-/s720/1163369.jpg' id='player' src='" + vidurl + "'></video>");
+
+
+function getembed(){
+            var code = `
+<iframe allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='true' frameborder='0' height='100%' scrolling='no' src='${location.href}?id=${video}' width='100%'></iframe>
+          `;
+          prompt('Here is Your Embed Code :- ',code);
+}
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+/*]]>*/
+	</script>
+<script src='path/to/plyr.js'/>
+<script>
+   /*<![CDATA[*/
+  const player = new Plyr('#player');  
+  /*]]>*/
+</script>
+
+<script src='https://www.blogger.com/static/v1/widgets/229717095-widgets.js' type='text/javascript'/>
+</body>
+</html>
